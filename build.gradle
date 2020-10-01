@@ -38,6 +38,7 @@ dependencies {
 
 def newArgs = [ '--add-exports','java.desktop/com.apple.eawt=ALL-UNNAMED',]
 
+
 run {
     inputs.property('moduleName', moduleName)
     doFirst {

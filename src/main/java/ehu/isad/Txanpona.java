@@ -11,7 +11,7 @@ import java.net.URLConnection;
 public class Txanpona {
     int trade_id;
     String price;
-    float size;
+    String size;
     String time;
     String bid;
     String ask;
