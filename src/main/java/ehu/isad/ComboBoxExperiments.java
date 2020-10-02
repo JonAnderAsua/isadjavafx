@@ -30,29 +30,26 @@ public class ComboBoxExperiments extends Application  {
 
     private  ListView<Argazki> listViewOfArgazki;
     private ImageView imageView = new ImageView();
-    private ComboBox comboBox;
+    private ComboBox comboBox ;
+    private List<String> bilduma;
+    private ObservableList<String> bildumaList;
+    private Map<String,List<Argazki>> bildumaMap;
+    private ObservableList<Argazki> argazkiList;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
- /*       Gson gson = new Gson();
-
-        comboBox.getItems().add("BTC");
-        comboBox.getItems().add("ETH");
-        comboBox.getItems().add("LTC");
-*/
-        //primaryStage.setTitle("Cryptomoneta aukeratu");
 
         primaryStage.setTitle("Irudia aukeratu");
 
          comboBox = new ComboBox();
 
-        List<String> bilduma = List.of("abereak","landareak","frutak");
+        bilduma = List.of("abereak","landareak","frutak");
 
-        ObservableList<String> bildumaList = FXCollections.observableArrayList(bilduma);
+        bildumaList = FXCollections.observableArrayList(bilduma);
 
         comboBox.setItems(bildumaList);
 
-        Map<String,List<Argazki>> bildumaMap = new HashMap<>();
+        bildumaMap = new HashMap<>();
         bildumaMap.put("abereak", List.of(
                 new Argazki("Elefantea", "elefantea.jpeg"),
                 new Argazki("Txakurra", "txakurra.jpeg"),
@@ -68,7 +65,7 @@ public class ComboBoxExperiments extends Application  {
                 new Argazki("Sagarra", "sagarra.jpeg"),
                 new Argazki("Sandia", "sandia.png")));
 
-        ObservableList<Argazki> argazkiList = FXCollections.observableArrayList();
+        argazkiList = FXCollections.observableArrayList();
 
 
         comboBox.setOnAction(e -> {
@@ -93,31 +90,12 @@ public class ComboBoxExperiments extends Application  {
         });
 
         comboBox.setEditable(false);
-/*
-        comboBox.setOnAction(e -> { //Arrow e -> = event e
- Kryptomoneten kodea (ez doa)
-            String moneta = comboBox.getValue().toString(); //Erabiltzaileak zein moneta aukeratu duen gorde
-            try {
-                String json = URLReader.URLlortu(moneta);
-                Txanpona t =gson.fromJson(json,Txanpona.class); //Da null
-                System.out.println(t);
-                l.setText(t.getPrice());
-            } catch (Exception exception) {
-                exception.printStackTrace();
-            }
-
-
-        });
-*/
-
 
 
         VBox vbox = new VBox(comboBox,listViewOfArgazki,imageView);
         Scene scene = new Scene(vbox, 400, 120);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-
 
     }
 
