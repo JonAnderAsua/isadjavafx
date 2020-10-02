@@ -43,24 +43,24 @@ public class ComboBoxExperiments extends Application  {
 
          comboBox = new ComboBox();
 
-        bilduma = List.of("abereak","landareak","frutak");
+        bilduma = List.of("Abereak","Landareak","Frutak");
 
         bildumaList = FXCollections.observableArrayList(bilduma);
 
         comboBox.setItems(bildumaList);
 
         bildumaMap = new HashMap<>();
-        bildumaMap.put("abereak", List.of(
+        bildumaMap.put("Abereak", List.of(
                 new Argazki("Elefantea", "elefantea.jpeg"),
                 new Argazki("Txakurra", "txakurra.jpeg"),
                 new Argazki("Untxia", "untxia.png")));
 
-        bildumaMap.put("landareak", List.of(
+        bildumaMap.put("Landareak", List.of(
                 new Argazki("Cactus", "cactus.png"),
                 new Argazki("Landare Berdea", "landareberdea.jpeg"),
                 new Argazki("Landare Horia", "landarehoria.jpeg")));
 
-        bildumaMap.put("frutak", List.of(
+        bildumaMap.put("Frutak", List.of(
                 new Argazki("Fresa", "fresa.jpeg"),
                 new Argazki("Sagarra", "sagarra.jpeg"),
                 new Argazki("Sandia", "sandia.png")));
