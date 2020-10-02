@@ -28,26 +28,24 @@ import java.util.Map;
 
 public class ComboBoxExperiments extends Application  {
 
+    private  ListView<Argazki> listViewOfArgazki;
+    private ImageView imageView = new ImageView();
+    private ComboBox comboBox;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Gson gson = new Gson();
+ /*       Gson gson = new Gson();
 
-        //primaryStage.setTitle("Cryptomoneta aukeratu");
-
-        primaryStage.setTitle("Irudia aukeratu");
-/*
-        Label l = new Label();
-        l.setVisible(true);
-        l.setText("froga");
-        */
-
-
-        ComboBox comboBox = new ComboBox();
-/*
         comboBox.getItems().add("BTC");
         comboBox.getItems().add("ETH");
         comboBox.getItems().add("LTC");
 */
+        //primaryStage.setTitle("Cryptomoneta aukeratu");
+
+        primaryStage.setTitle("Irudia aukeratu");
+
+         comboBox = new ComboBox();
+
         List<String> bilduma = List.of("abereak","landareak","frutak");
 
         ObservableList<String> bildumaList = FXCollections.observableArrayList(bilduma);
@@ -72,29 +70,32 @@ public class ComboBoxExperiments extends Application  {
 
         ObservableList<Argazki> argazkiList = FXCollections.observableArrayList();
 
-        argazkiList.addAll(bildumaMap.get("abereak"));
 
-        ListView listViewOfArgazki = new ListView<>(argazkiList);
+        comboBox.setOnAction(e -> {
+                argazkiList.clear();
+                argazkiList.addAll(bildumaMap.get(comboBox.getValue()));
+
+                });
+
+        listViewOfArgazki = new ListView<>(argazkiList);
 
         listViewOfArgazki.getSelectionModel().selectedItemProperty().addListener(  (observable, oldValue, newValue) -> {
             if (observable.getValue() == null) return;
 
-            String fitx = observable.getValue().toString();
+            String fitx = observable.getValue().getArgazkia();
 
             try {
-                imageView.setImage(lortuIrudia(fitx /* 48x48 */));
-            } catch (IOException e) {
+               imageView.setImage(lortuIrudia(fitx /* 48x48 */));
+           } catch (IOException e) {
                 e.printStackTrace();
             }
 
         });
 
         comboBox.setEditable(false);
-
-
-
+/*
         comboBox.setOnAction(e -> { //Arrow e -> = event e
-/* Kryptomoneten kodea (ez doa)
+ Kryptomoneten kodea (ez doa)
             String moneta = comboBox.getValue().toString(); //Erabiltzaileak zein moneta aukeratu duen gorde
             try {
                 String json = URLReader.URLlortu(moneta);
@@ -104,19 +105,19 @@ public class ComboBoxExperiments extends Application  {
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-*/
+
 
         });
+*/
 
-/*
 
-        //VBox vbox = new VBox(l,comboBox);
-        VBox vbox = new VBox(comboBox,lv,iv);
+
+        VBox vbox = new VBox(comboBox,listViewOfArgazki,imageView);
         Scene scene = new Scene(vbox, 400, 120);
         primaryStage.setScene(scene);
         primaryStage.show();
 
- */
+
 
     }
 

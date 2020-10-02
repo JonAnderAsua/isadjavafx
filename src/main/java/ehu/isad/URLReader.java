@@ -1,7 +1,6 @@
 package ehu.isad;
 import java.net.*;
 import java.io.*;
-import com.google.gson.Gson;
 
 public class URLReader {
     public static String URLlortu(String s) throws Exception {
