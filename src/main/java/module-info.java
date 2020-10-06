@@ -5,5 +5,5 @@ open module gradlejavafx {
   requires javafx.swing;
   requires javafx.web;
   requires com.google.gson;
-  exports ehu.isad;
+  exports ehu.isad.Kryptomoneta;
 }

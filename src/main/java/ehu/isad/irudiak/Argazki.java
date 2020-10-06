@@ -1,4 +1,4 @@
-package ehu.isad;
+package ehu.isad.irudiak;
 
 
 import java.io.IOException;

@@ -1,26 +1,21 @@
-package ehu.isad;
+package ehu.isad.irudiak;
 
-import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
-import javax.swing.text.Element;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.channels.GatheringByteChannel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,7 +71,7 @@ public class ComboBoxExperiments extends Application  {
 
         listViewOfArgazki = new ListView<>(argazkiList);
 
-        listViewOfArgazki.getSelectionModel().selectedItemProperty().addListener(  (observable, oldValue, newValue) -> {
+        listViewOfArgazki.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (observable.getValue() == null) return;
 
             String fitx = observable.getValue().getArgazkia();

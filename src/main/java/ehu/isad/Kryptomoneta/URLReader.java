@@ -1,4 +1,4 @@
-package ehu.isad;
+package ehu.isad.Kryptomoneta;
 import java.net.*;
 import java.io.*;
 
